@@ -7,15 +7,14 @@ import {
   MenuButton,
   MenuItem,
   MenuItems,
-  Radio, 
-  RadioGroup
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import useTranslation from "next-translate/useTranslation";
 import CategoryItem from "./category-item";
+import AvatarGroup from "./avatar-group";
 
-import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
+
+
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -47,7 +46,7 @@ function classNames(...classes: unknown[]) {
 
 export default function Example() {
   const { t } = useTranslation("common");
-  const [selectedColor, setSelectedColor] = useState(options[1])
+  
   const navigation = [
     { name: t("Plan"), href: "#", current: true },
     { name: t("Team"), href: "#", current: false },
@@ -228,10 +227,10 @@ export default function Example() {
                 className="grid grid-cols-1 gap-y-8 lg:grid-cols-6 xl:gap-x-8"
               >
                 {/* 项目 */}
-                <CategoryItem title={t("Projects")} />
+                <CategoryItem title={t("Projects")} logo={"https://tailwindui.com/plus/img/logos/48x48/tuple.svg"}/>
   
                 {/* 长篇故事 */}
-                <CategoryItem title={t("longStory")} />
+                <CategoryItem title={t("longStory")} logo={"https://tailwindui.com/plus/img/logos/48x48/savvycal.svg"}/>
 
 
                   
@@ -242,154 +241,15 @@ export default function Example() {
                     key={3}
                     className="overflow-hidden rounded-xl border border-gray-200 lg:col-span-4"
                     >
-                      
-                        <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-6 flex items-center space-x-3">
-                          {options.map((option) => (
-                            <Radio
-                              key={option.name}
-                              value={option}
-                              aria-label={option.name}
-                              className={classNames(
-                                option.color,
-                                'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-current focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1',
-                              )}
-                            >
-                              <span aria-hidden="true" className="size-8 rounded-full border border-black/10 bg-current" />
-                            </Radio>
-                          ))}
-                        </RadioGroup>
-                    <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
-                      <img
-                      alt={"面板"}
-                      src={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}
-                      className="size-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
-                      />
-                      <div className="text-sm/6 font-medium text-gray-900">
-                        面板
-                      </div>
-                      <Menu as="div" className="relative ml-auto">
-                      <MenuButton className="-m-2.5 block p-2.5 text-gray-400 hover:text-gray-500">
-                      <span className="sr-only">Open options</span>
-                      <EllipsisHorizontalIcon
-                      aria-hidden="true"
-                      className="size-5"
-                      />
-                      </MenuButton>
-                      <MenuItems
-                      transition
-                      className="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                      >
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        View
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        Edit
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      </MenuItems>
-                      </Menu>
-                    </div>
-
-                    <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
-                      <img
-                      alt={"面板"}
-                      src={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}
-                      className="size-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
-                      />
-                      <div className="text-sm/6 font-medium text-gray-900">
-                        面板
-                      </div>
-                      <Menu as="div" className="relative ml-auto">
-                      <MenuButton className="-m-2.5 block p-2.5 text-gray-400 hover:text-gray-500">
-                      <span className="sr-only">Open options</span>
-                      <EllipsisHorizontalIcon
-                      aria-hidden="true"
-                      className="size-5"
-                      />
-                      </MenuButton>
-                      <MenuItems
-                      transition
-                      className="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                      >
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        View
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        Edit
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      </MenuItems>
-                      </Menu>
-                    </div>
-
-                    <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-6">
-                      <img
-                      alt={"面板"}
-                      src={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}
-                      className="size-12 flex-none rounded-lg bg-white object-cover ring-1 ring-gray-900/10"
-                      />
-                      <div className="text-sm/6 font-medium text-gray-900">
-                        面板
-                      </div>
-                      <Menu as="div" className="relative ml-auto">
-                      <MenuButton className="-m-2.5 block p-2.5 text-gray-400 hover:text-gray-500">
-                      <span className="sr-only">Open options</span>
-                      <EllipsisHorizontalIcon
-                      aria-hidden="true"
-                      className="size-5"
-                      />
-                      </MenuButton>
-                      <MenuItems
-                      transition
-                      className="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                      >
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        View
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      <MenuItem>
-                      <a
-                        href="#"
-                        className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
-                      >
-                        Edit
-                        <span className="sr-only">, 面板</span>
-                      </a>
-                      </MenuItem>
-                      </MenuItems>
-                      </Menu>
-                    </div>
+                    <AvatarGroup options={options} />
                     
-                    <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm/6">
-                    {/* 冲刺部分 */}
-                    </dl>
+                    <CategoryItem title={t("panel")} logo={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}/>
+
+                    <CategoryItem title={t("panel")} logo={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}/>
+
+                    <CategoryItem title={t("panel")} logo={"https://tailwindui.com/plus/img/logos/48x48/reform.svg"}/>
+
+
                     </li>
               </ul>
             </div>
